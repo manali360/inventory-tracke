@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load static %}
+
+    <!-- Hero Section -->
+    <header id="home" class="hero">
+        <h1>Manage Your Inventory Seamlessly</h1>
+        <p>Track, analyze, and optimize your stock effortlessly with our smart inventory management system.</p>
+        <button onclick="scrollToSection('features')">Explore Features</button>
+    </header>
+
+    <!-- Why Choose Us Section -->
+    <section id="dashboard" class="dashboard">
+        <h2>Why Choose Our Inventory Tracker?</h2>
+        <p>Effortlessly manage stock, track real-time analytics, and make data-driven decisions to improve efficiency.</p>
+        
+        <div class="features-grid">
+            <div class="feature">
+                <h3>Real-time Stock Updates</h3>
+                <p>Get instant updates on stock levels and avoid shortages.</p>
+            </div>
+            <div class="feature">
+                <h3>Low Stock Alerts</h3>
+                <p>Receive notifications before you run out of essential items.</p>
+            </div>
+            <div class="feature">
+                <h3>Automated Reports</h3>
+                <p>Generate insightful reports to optimize inventory decisions.</p>
+            </div>
+            <div class="feature">
+                <h3>Multi-User Access</h3>
+                <p>Collaborate with your team with role-based access.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section id="stats" class="stats">
+        <h2>Our Impact</h2>
+        <div class="stats-container">
+            <div class="stat">
+                <h3>5,000+</h3>
+                <p>Businesses Using Our System</p>
+            </div>
+            <div class="stat">
+                <h3>99.9%</h3>
+                <p>Inventory Accuracy</p>
+            </div>
+            <div class="stat">
+                <h3>1M+</h3>
+                <p>Products Tracked Daily</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="about">
+        <h2>About Us</h2>
+        <p>We are a dedicated team helping businesses streamline inventory management. Our AI-powered system ensures businesses can reduce waste and optimize stock levels efficiently.</p>
+    </section>
+
+    {% include "contact_form.html" %}
+    
+{% endblock content %}

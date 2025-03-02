@@ -1,0 +1,19 @@
+# Python environment
+env/
+*.pyc
+__pycache__/
+
+# VS Code settings
+.vscode/
+
+# Database files
+*.sqlite3
+
+# Other files
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.DS_Store

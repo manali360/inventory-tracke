@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="register-container" style="max-width: 500px; margin: 0 auto; padding: 40px; background: white; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+
+    <div class="register-form" style="display: flex; flex-direction: column; gap: 15px;">
+
+        <h2 style="color: #2c3e50;">Register</h2>
+
+        <form method="post" style="display: flex; flex-direction: column; gap: 15px;">
+
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="Username" required style="padding: 10px; font-size: 16px;">
+            <input type="email" name="email" placeholder="Email" required style="padding: 10px; font-size: 16px;">
+            <input type="password" name="password1" placeholder="Password" required style="padding: 10px; font-size: 16px;">
+            <input type="password" name="password2" placeholder="Confirm Password" required style="padding: 10px; font-size: 16px;">
+            <button type="submit" style="padding: 10px; font-size: 16px;">Register</button>
+
+
+        </form>
+    </div>
+</div>
+{% endblock %}

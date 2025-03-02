@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container" style="max-width: 500px; margin: 0 auto; padding: 40px;">
+    <h2 class="heading" style="text-align: center;">Add Inventory Item</h2>
+    <form method="POST" class="form-container" style="display: flex; flex-direction: column; gap: 15px;">
+
+        {% csrf_token %}
+
+         
+        {% if item is not none %}
+        <label for="name" style="font-weight: bold; margin-top: 10px; " >Item Name:</label>
+        <input type="text" id="name" name="name" required style="padding: 12px; font-size: 16px;" value='{{item.name}}'> >
+
+
+        <label for="category" style="font-weight: bold; margin-top: 10px;" ">Category:</label>
+        <select id="category" value='{{item.category.name}}' name="category" style="padding: 12px; font-size: 16px;" >
+
+            {% for category in categories %}
+                <option value="{{ category.id }}">{{ category.name }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="quantity" style="font-weight: bold; margin-top: 10px;" >>Quantity:</label>
+        <input type="number" id="quantity" value='{{item.quantity}}' name="quantity" required style="padding: 12px; font-size: 16px;">
+
+
+        <label for="description" style="font-weight: bold; margin-top: 10px;" >Description:</label>
+        <textarea id="description" value="{{item.description}}" name="description" style="padding: 12px; font-size: 16px;" placeholder='{{item.description}}'></textarea>
+        
+       
+
+        {% else %}
+        <label for="name" style="font-weight: bold; margin-top: 10px;">Item Name:</label>
+        <input type="text" id="name" name="name" required style="padding: 12px; font-size: 16px;">
+
+
+       <label for="category" style="font-weight: bold; margin-top: 10px;">Category:</label>
+<select id="category" name="category" style="padding: 12px; font-size: 16px;">
+    <option value="" disabled selected>Select Category</option>  <!-- Placeholder Option -->
+    {% for category in categories %}
+        <option value="{{ category.id }}">{{ category.name }}</option>
+    {% endfor %}
+</select>
+
+
+        <label for="quantity" style="font-weight: bold; margin-top: 10px;">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" required style="padding: 12px; font-size: 16px;">
+
+
+        <label for="description" style="font-weight: bold; margin-top: 10px;">Description:</label>
+        <textarea id="description" name="description" style="padding: 12px; font-size: 16px;"></textarea>
+       
+        {% endif %}
+
+
+        <button type="submit" class="btn" style="padding: 12px; font-size: 16px;">Add Item</button>
+
+    </form>
+    <a href="{% url 'inventory_view' %}" class="back-link" style="text-align: center; margin-top: 20px;">Back to Inventory</a>
+
+</div>
+{% endblock %}

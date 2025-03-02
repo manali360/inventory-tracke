@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2 class="heading">Inventory List</h2>
+    <table class="inventory-table">
+        <tr>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Quantity</th>
+            <th>Actions</th>
+        </tr>
+        {% for item in items %}
+        <tr>
+            <td>{{ item.name }}</td>
+            <td>{{ item.category.name }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>
+                <a href="{% url 'edit_inventory' item.id %}" class="edit-btn">Edit</a>
+                <a href="{% url 'delete_inventory' item.id %}" class="delete-btn" onclick="return confirm('Are you sure?');">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{% url 'add_inventory' %}" class="btn">Add New Item</a>
+</div>
+{% endblock %}
